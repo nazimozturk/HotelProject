@@ -1,0 +1,53 @@
+﻿@model LoginPicker
+@{
+	ViewData["Title"] = "Test";
+}
+<link rel="stylesheet" href="/css/roomList.css" />
+<script>
+	$(document).ready(function() {/*$('#footer').hide(); */ });
+
+	var nav = document.querySelector('nav');
+
+	window.addEventListener('scroll', function() {
+		if (window.pageYOffset > 100) {
+			nav.classList.add('bg-dark', 'shadow');
+		} else {
+			nav.classList.remove('bg-dark', 'shadow');
+		}
+	});
+</script>
+
+<section class="special">
+	<div class="container py-4">
+		<h1 class="h1 text-center text-light" id="pageHeaderTitle">Odalarımız aşağıda listelenmektedir.</h1>
+		<!-- Test Başlangıç -->
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />				
+			</a><button type="button" class="btn btn-success position-absolute bottom-0 end-0 m-2 btn-sm">
+					<i id="btnCheck" class="bi bi-check-circle-fill" style="color:white"></i> Rezervasyonu Tamamla
+				</button>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="#">Standart Kara Manzara</a></h1>
+				<div class="postcard__subtitle small text-primary">
+					<time datetime="2020-05-25 12:00:00">
+						 
+							<i class="fas fa-calendar-alt mr-2"></i> Aşağıda yer alan fiyatlar <b>2 Yetişkin</b> ve (6 Gece) - <b>13.06.2022</b> ile <b>19.06.2022</b> tarih aralığı için geçerlidir.
+												
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">37 m² Modern dekorasyon ile tasarlanmıştır. Tüm odalar balkonlu, parke zemin, elektronik kapı kartı, kanepe ve koltuk, minibar, ulusal ve uluslararası uydu yayınlı 40” LCD TV, TV üzerinden radyo, direk telefon, özel banyo malzemeleri, saç kurutma makinesi, WC, banyoda telefon, merkezi klima, elektronik emanet kasası,mevcuttur. Günlük oda temizliği ve havlu değişimi ve üç günde bir nevresim değişimi yapılmakta ve istek doğrultusunda odalara ücret karşılığı bornoz ve ücretsiz terlik verilmektedir. İstek üzerine bebek yatağı odalara yerleştirilir.</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i style="color:white" class="bi bi-check-all"></i> Balkon / Teras</li>
+					<li class="tag__item"><i style="color:white" class="bi bi-check-all"></i> Wifi</li>
+					<li class="tag__item"><i style="color:white" class="bi bi-check-all"></i> Havuz</li>
+					<li class="tag__item"><i style="color:white" class="bi bi-check-all"></i> Minibar</li>
+					<li class="tag__item"><i style="color:white" class="bi bi-check-all"></i> Televizyon</li>
+				</ul>
+				
+			</div>
+		</article>
+		<!-- Test Bitiş -->
+	</div>
+</section>

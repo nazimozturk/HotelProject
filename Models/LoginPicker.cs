@@ -10,7 +10,10 @@ namespace HotelProject.Models
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
 
+        public string roomSelect { get; set; } // dropdown
         public string adultCount { get; set; } // dropdown
         public string childCount { get; set; } // dropdown
+
+        //public DateTime gunFark { get; set => endDate - startDate; }
     }
 }

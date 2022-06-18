@@ -1,4 +1,4 @@
-﻿@model List<LoginPicker>
+﻿@model LoginPicker
 @{
 	ViewData["Title"] = "Otel Transilvanya";
 }
@@ -8,8 +8,16 @@
 <!--Hey! This is the original version
 of Simple CSS Waves-->
 
+<style>
+	body{
+		background-color: white;
+	}
+	footer{
+		position:absolute;
+		border:none;
+	}
+</style>
 <div class="header">
-
 	<!--Content before waves-->
 	<div class="inner-header flex">
 		<div class="container">
@@ -24,72 +32,66 @@ of Simple CSS Waves-->
 				</div>
 				<div class="col-md-4 col-md-pull-7">
 					<div class="booking-form">
-						<form>
-							@*@foreach (LoginPicker item in Model)
-							{*@
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<span class="form-label">Giriş Tarihi</span>
-											<input id="startDate" class="form-control" type="date" required>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="form-group">
-											<span class="form-label">Çıkış Tarihi</span>
-											<input id="endDate" class="form-control" type="date" required>
-										</div>
+						<form method="post">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label asp-for="startDate" class="form-label">Giriş Tarihi</label>
+										<input asp-for="startDate" id="startDate" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" required>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-sm-4">
-										<div class="form-group">
-											<span class="form-label">Oda Tipi</span>
-											<select id="roomSelect" class="form-control">
-												<option value="" id="roomStandart">1</option>
-												<option value="" id="">2</option>
-												<option value="" id="">3</option>
-												<option value="" id="">4</option>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<span class="form-label">Yetişkin</span>
-											<select class="form-control">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group">
-											<span class="form-label">Çocuk</span>
-											<select class="form-control">
-												<option>0</option>
-												<option>1</option>
-												<option>2</option>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label asp-for="endDate" class="form-label">Çıkış Tarihi</label>
+										<input asp-for="endDate" id="endDate" class="form-control" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" type="date" required>
 									</div>
 								</div>
-							@*}*@
+							</div>
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label asp-for="roomSelect" class="form-label">Oda Tipi</label>
+										<select asp-for="roomSelect" id="roomSelect" class="form-control">
+											<option value="Standart Kara Manzaralı">Standart Kara Manzaralı</option>
+											<option value="" id="">2</option>
+											<option value="" id="">3</option>
+											<option value="" id="">4</option>
+										</select>
+										<label class="select-arrow"></label>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label asp-for="adultCount" class="form-label">Yetişkin</label>
+										<select asp-for="adultCount" id="adultCount" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label asp-for="childCount" class="form-label">Çocuk</label>
+										<select asp-for="childCount" id="childCount" class="form-control">
+											<option>0</option>
+											<option>1</option>
+											<option>2</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
 							<div class="form-btn">
-								<button asp-action="TestPage" asp-route-id="" class="submit-btn">Odaları Listele</button>
+								<button type="submit" class="submit-btn w-100">Odaları Listele</button>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
 
 	<!--Waves Container-->
 	<div>
@@ -107,11 +109,5 @@ of Simple CSS Waves-->
 		</svg>
 	</div>
 	<!--Waves end-->
-
 </div>
 <!--Header ends-->
-<!--Content starts-->
-<div class="content flex">
-	<p><b>Nazım ÖZTÜRK</b></p>
-</div>
-<!--Content ends-->

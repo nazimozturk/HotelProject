@@ -22,20 +22,31 @@ namespace HotelProject.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(LoginPicker model)
+        {
+            if (RoomList._loginPickers.Count > 0) RoomList._loginPickers.RemoveAt(0);
+            RoomList._loginPickers.Add(model);
+            return RedirectToAction("RoomLists");
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult RoomList()
+        public IActionResult RoomLists()
+        {
+            return View(RoomList._loginPickers);
+        }
+        public IActionResult RoomDetails()
         {
             return View();
         }
 
         public IActionResult TestPage()
         {
-            return View();
+            return View(RoomList._loginPickers);
         }
         public IActionResult TestPage2()
         {

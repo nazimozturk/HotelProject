@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<LoginPicker>
 @{
 	ViewData["Title"] = "Room Details";
 }
@@ -33,11 +31,29 @@
 			<a class="postcard__img_link" href="#">
 				<img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
 			</a>
+			<button type="button" class="btn btn-success position-absolute bottom-0 end-0 m-2 btn-sm">
+				<i id="btnCheck" class="bi bi-check-circle-fill" style="color:white"></i> Rezervasyonu Tamamla
+			</button>
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title blue"><a>Standart Kara Manzara</a></h1>
 				<div class="postcard__subtitle small">
 					<time datetime="">
+						@if (Model != null)
+						{
+							@foreach (var item in Model)
+							{
+								var startDate = item.startDate;
+								var endDate = item.endDate;
 
+								var date = (endDate-startDate);
+
+								@: <i class="fas fa-calendar-alt mr-2"></i> Aşağıda yer alan fiyatlar <b>@item.adultCount yetişkin</b>(@item.childCount Çocuk) ve (@date.TotalDays  gün) <b>@item.startDate.ToShortDateString()</b> ile <b>@item.endDate.ToShortDateString()</b> tarih aralığı için geçerlidir.
+							}
+						}
+						else
+						{	
+							@: <i class="fas fa-calendar-alt mr-2"></i> Aşağıda yer alan fiyatlar <b> - yetişkin</b>(- Çocuk) ve (- gün) <b>-</b> ile <b> - </b> tarih aralığı için geçerlidir.
+						}
 					</time>
 				</div>
 				<div class="postcard__bar"></div>
